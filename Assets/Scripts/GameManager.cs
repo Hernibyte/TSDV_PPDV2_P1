@@ -8,10 +8,26 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public int gamePoints = 0;
     [HideInInspector] public int enemyDestroyed = 0;
     int enemyCount;
+    bool gamePause;
 
     void Start(){
         worldGenerator.cubeWithDoor.GetComponent<BreakableCube>().spawnDoor.AddListener(SearchDoor);
         worldGenerator.playerInstance.GetComponent<Player>().imDie.AddListener(LoseGame);
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            GamePause();
+        }
+    }
+
+    public void GamePause(){
+        gamePause = !gamePause;
+
+        if(gamePause)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
     }
 
     public void IfEnemySpawn(){
