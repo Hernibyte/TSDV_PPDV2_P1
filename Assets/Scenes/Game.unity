@@ -173,8 +173,8 @@ MonoBehaviour:
     type: 3}
   horizontalSize: 21
   verticalSize: 21
-  randomRange: 3
-  randomEnemyRange: 50
+  randomRange: 5
+  randomEnemyRange: 200
   cubeWithDoor: {fileID: 0}
   playerInstance: {fileID: 0}
 --- !u!1 &107812430

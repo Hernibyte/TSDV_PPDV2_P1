@@ -6,13 +6,16 @@ using UnityEngine.Events;
 public class Bomb : MonoBehaviour {
     public int distanceToExplosion = 2;
     [HideInInspector] public UnityEvent imExplode;
-
     void Start(){
         if(imExplode == null) 
             imExplode = new UnityEvent();
 
         Reposition();
         StartCoroutine(Explosion());
+    }
+
+    void OnTriggerExit(Collider other){
+        GetComponent<Collider>().isTrigger = false;
     }
 
     void Reposition(){

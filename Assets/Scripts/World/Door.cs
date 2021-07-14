@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Door : MonoBehaviour {
     [HideInInspector] public UnityEvent openDoor;
     [SerializeField] LayerMask playerLayerMask;
+    public bool isDoorOpen = false;
 
     void Awake(){
         if(openDoor == null)
@@ -13,8 +14,10 @@ public class Door : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other){
-        if(Contains(playerLayerMask, other.gameObject.layer))
-            openDoor.Invoke();
+        if(isDoorOpen){
+            if(Contains(playerLayerMask, other.gameObject.layer))
+                openDoor.Invoke();
+        }
     }
 
     bool Contains(LayerMask mask, int layer){

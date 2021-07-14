@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneBehaviour : MonoBehaviour {
     static SceneBehaviour instance = null;
+    public string hola;
 
     public static SceneBehaviour Get {
         get{

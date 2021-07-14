@@ -43,7 +43,12 @@ public class GameManager : MonoBehaviour {
 
     public void IfAllEnemyDie(){
         if(enemyCount <= 0){
-            worldGenerator.cubeWithDoor.GetComponent<BreakableCube>().Break();
+            if(worldGenerator.cubeWithDoor != null){
+                worldGenerator.cubeWithDoor.GetComponent<BreakableCube>().Break();
+                FindObjectOfType<Door>().isDoorOpen = true;
+            }
+            else
+                FindObjectOfType<Door>().isDoorOpen = true;
         }
     }
 

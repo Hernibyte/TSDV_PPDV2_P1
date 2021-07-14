@@ -19,7 +19,8 @@ public class BreakableCube : MonoBehaviour, IBreakable {
 
     public void Break(){
         if(iHaveDoor){
-            Instantiate(door, transform.position, Quaternion.identity);
+            GameObject doorInstance = Instantiate(door, transform.position, Quaternion.identity);
+            doorInstance.GetComponent<Door>().isDoorOpen = true;
             spawnDoor.Invoke();
         }
         if(iHavePowerUp == 1){
